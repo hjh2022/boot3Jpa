@@ -1,0 +1,29 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.9' // 프로젝트에 사용할 스프링부트 플러그인
+	id 'io.spring.dependency-management' version '1.1.4' // 스프링의 의존성을 관리하기 위해 추가.
+}
+
+group = 'com.example' //프로젝트를 설정할 때 지정한 기본값 그룹이름
+version = '0.0.1-SNAPSHOT' // 기본값 버전
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories { // 의존성을 받을 저장소.
+	mavenCentral()
+}
+
+dependencies { // 개발하며 필요한 의존성을 추가 입력, 스프링부트는 현재 버전에 맞는 라이브러리를 알아서 관리한다.
+	implementation 'org.springframework.boot:spring-boot-starter-web' // 웹관련 기능을 제공하는 의존성
+	testImplementation 'org.springframework.boot:spring-boot-starter-test' // 테스트 기능 제공
+}
+
+tasks.named('bootBuildImage') {
+	builder = 'paketobuildpacks/builder-jammy-base:latest'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
