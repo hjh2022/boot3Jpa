@@ -1,0 +1,98 @@
+### 1-1. get session....session-id 를 리턴해준다.
+### 1. vSphere Automation Rest Api
+POST https://vcsa.vrealize.local/api/session
+Content-Type: application/json
+authorization: Basic YWRtaW5pc3RyYXRvckB2c3BoZXJlLmxvY2FsOlNieGtzbHJ0bS80dSE=
+
+<> 2024-01-30T163550.201.json
+<> 2024-01-18T165041.201.json
+
+
+
+### catalogRequest
+POST http://localhost:9009/api/deploy/deploy
+Content-Type: application/json
+ec2-api-key: EHxN2iOYImm238FuJQRijeCwM5Kqm2hlD83xTCc1H37KmxTYYnngYQnO9hwaurEG
+
+{
+  "deployId" : "Test3ApiVm",
+  "userId" : "User01",
+  "osType" : "Windows",
+  "cpuCount" : 4,
+  "memoryGb" : 4,
+  "diskGb" : 40,
+  "gpuEa" : 0,
+  "initPassword" : "q1w1e1@@",
+  "startDate" : "20240116",
+  "endDate" : "20240209"
+}
+
+<> 2024-01-18T170922.202.json
+<> 2024-01-18T170801.202.json
+<> 2024-01-18T170723.400.json
+<> 2024-01-18T170719.400.json
+<> 2024-01-18T170623.400.json
+<> 2024-01-18T165132.400.json
+<> 2024-01-18T165116.400.json
+
+
+### 호출은 was 를 띄운 상태에서 해야함을 잊지말것.(vm은 꺼져있어야한다.)
+POST http://localhost:9009/api/deploy/deploy/UDSWnull70/resize
+Content-Type: application/json
+ec2-api-key: EHxN2iOYImm238FuJQRijeCwM5Kqm2hlD83xTCc1H37KmxTYYnngYQnO9hwaurEG
+
+{
+  "cpuCount" : 4,
+  "memoryGb" : 4
+}
+
+<> 2024-01-30T173221.200.json
+<> 2024-01-30T171637.200.json
+<> 2024-01-30T165116.200.json
+<> 2024-01-30T163955.200.json
+<> 2024-01-30T163902.200.json
+<> 2024-01-30T163829.400.json
+
+### GPu 제거
+DELETE http://localhost:9009/api/deploy/deploy/UDSWnull69/gpu
+Content-Type: application/json
+ec2-api-key: EHxN2iOYImm238FuJQRijeCwM5Kqm2hlD83xTCc1H37KmxTYYnngYQnO9hwaurEG
+
+<> 2024-01-30T193130.200.json
+<> 2024-01-30T192821.200.json
+<> 2024-01-30T173549.200.json
+<> 2024-01-30T173425.200.json
+<> 2024-01-30T173016.500.json
+<> 2024-01-30T172424.200.json
+<> 2024-01-30T172110.200.json
+
+### Gpu 추가.
+POST http://localhost:9009/api/deploy/deploy/UDSWnull69/gpu
+Content-Type: application/json
+ec2-api-key: EHxN2iOYImm238FuJQRijeCwM5Kqm2hlD83xTCc1H37KmxTYYnngYQnO9hwaurEG
+
+<> 2024-01-30T193044.500.json
+
+### catalogRequest
+POST http://localhost:9009/api/deploy/deploy
+Content-Type: application/json
+ec2-api-key: EHxN2iOYImm238FuJQRijeCwM5Kqm2hlD83xTCc1H37KmxTYYnngYQnO9hwaurEG
+
+{
+  "deployId" : "Test3ApiVm",
+  "userId" : "User01",
+  "osType" : "Windows",
+  "cpuCount" : 4,
+  "memoryGb" : 4,
+  "diskGb" : 40,
+  "gpuEa" : 0,
+  "initPassword" : "q1w1e1@@",
+  "startDate" : "20240116",
+  "endDate" : "20240209"
+}
+
+<> 2024-02-14T172327.402.json
+<> 2024-02-14T172140.404.json
+
+### test 127.0.0.1 = 현재 사용중인 컴퓨터
+GET http://localhost:8080/test
