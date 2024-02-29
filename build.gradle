@@ -18,6 +18,12 @@ repositories { // 의존성을 받을 저장소.
 dependencies { // 개발하며 필요한 의존성을 추가 입력, 스프링부트는 현재 버전에 맞는 라이브러리를 알아서 관리한다.
 	implementation 'org.springframework.boot:spring-boot-starter-web' // 웹관련 기능을 제공하는 의존성
 	testImplementation 'org.springframework.boot:spring-boot-starter-test' // 테스트 기능 제공
+	//
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'mysql:mysql-connector-java' // Mysql db
+	compileOnly 'org.projectlombok:lombok' // 롬복
+	annotationProcessor 'org.projectlombok:lombok'
+
 }
 
 tasks.named('bootBuildImage') {
