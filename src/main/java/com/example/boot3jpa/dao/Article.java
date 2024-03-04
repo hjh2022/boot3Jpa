@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import java.time.LocalDateTime;
 
 @Table(name = "article")
 @NoArgsConstructor
@@ -20,6 +24,15 @@ public class Article {
 
     @Column(name = "content", nullable = false)
     private String content;
+
+    //시간정보 추가
+    @CreatedDate // 엔티티가 생성될 때 생성시간을 컬럼에 저장.
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @LastModifiedDate // 엔티티가 수정될 때 수정 시간 저장
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 
     @Builder // 빌더패턴으로 객체생성 가능하게 된다.
     public Article(String title, String content){

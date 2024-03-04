@@ -2,7 +2,9 @@ package com.example.boot3jpa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+@EnableJpaAuditing // created_at, updated_at 자동 업데이트 되도록 추가..
 @SpringBootApplication // 스프링부트 사용에 필요한 기본 설정을 해준다.
 public class Boot3JpaApplication {
 
