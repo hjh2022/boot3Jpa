@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS test.member;
+CREATE TABLE IF NOT EXISTS test.member
+(
+    ID INT NOT NULL,
+    NAME VARCHAR(64),
+    PRIMARY KEY (ID)
+);

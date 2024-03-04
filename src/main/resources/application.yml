@@ -7,26 +7,19 @@ spring:
     # ??? ?? ?? data.sql ??
     defer-datasource-initialization: true
     properties:
-      # ??? ?? ?? data.sql ??
-      defer-datasource-initialization: true
       hibernate:
         format_sql: true
-        # ?? ???
         default_schema: test
         # Postgres
 #        dialect: org.hibernate.dialect.PostgreSQLDialect
-#      show_sql: true # app ????? db? ??? ??? ??? ????? ????.
-      logging.level:
-        org.hibernate:
-          SQL: debug
-
-    # ????: spring.jpa.hibernate.naming' to org.springframework.boot.autoconfigure.orm.jpa.HibernateProperties$Naming:
     hibernate:
-      ddl-auto: update
+#      ddl-auto: validate # 엔티티클래스와 테이블이 정상적으로 맵핑되는지만 검사한다.
+      ddl-auto: none
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-    naming:
-      physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+  sql:
+    init:
+      mode: always
 
 ---
 server:
@@ -40,3 +33,8 @@ spring:
     url: "jdbc:postgresql://211.115.206.189:5432/davinci"
     username: "seowon"
     password: "tjdnjs1!"
+  sql:
+    init:
+      encoding: utf-8
+      schema-locations: classpath*:db/schema.sql
+      data-locations: classpath*:db/data.sql
