@@ -95,4 +95,4 @@ ec2-api-key: EHxN2iOYImm238FuJQRijeCwM5Kqm2hlD83xTCc1H37KmxTYYnngYQnO9hwaurEG
 <> 2024-02-14T172140.404.json
 
 ### test 127.0.0.1 = 현재 사용중인 컴퓨터
-GET http://localhost:8080/test
+GET http://localhost:28005/test
