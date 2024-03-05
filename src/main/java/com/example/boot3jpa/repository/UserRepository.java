@@ -14,4 +14,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
      * Select * From users Where email = #{email} 쿼리를 요청한다.
      */
 
+
 }
